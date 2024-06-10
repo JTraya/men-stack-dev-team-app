@@ -11,6 +11,13 @@ const userSchema = mongoose.Schema({
   },
 });
 
+userSchema.set('toObject', {
+  transform: (doc, ret) => {
+    delete ret.password;
+    return ret;
+  }
+})
+
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
