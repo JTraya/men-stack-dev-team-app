@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTStudio: <%= gameDoc.title%></title>
+</head>
+<body>
+    <h1><%= gameDoc.title %></h1>
+
+    <h2><%= gameDoc.tags %></h2>
+
+    <p><%= gameDoc.description %></p>
+
+    <% if (gameDoc.details) { %>
+     <p><%= gameDoc.details %></p>
+     <% } else { %>
+      <p>*No Extra Details Yet</p>
+    <% } %>
+
+    <h2>Likes</h2>
+    <p>Liked by <%= gameDoc.likesByUsers.length %> people.</p>
+
+    <% if (isLikedByUser) { %>
+     <p>You liked this idea!</p>
+     <% } else { %>
+      <form action="/game-ideas/<%= gameDoc._id %>/liked-by" method="POST">
+        <button type="submit">Like it!</button>
+      </form>
+    <% } %>
+</body>
+</html>

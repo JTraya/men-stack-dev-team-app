@@ -19,7 +19,7 @@ const gameIdeaSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     },
-    favoritesByUsers: [{
+    likesByUsers: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     }]
