@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>New Game Idea</h1>
+
+
+    <form action="/game-ideas" method="POST">
+
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title"/>
+
+        <label for="tags">Tags:</label>
+        <input type="text" name="tags" id="tags"/>
+
+        <label for="description">Description:</label>
+        <textarea name="description" id="description"></textarea>
+
+        <label for="details">Extra Details:</label>
+        <input type="text" name="details" id="details">
+
+        <button type="submit">Add Game Idea</button>
+        
+    </form>
+</body>
+</html>

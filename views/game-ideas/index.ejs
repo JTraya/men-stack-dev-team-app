@@ -10,6 +10,17 @@
 <body>
     <h1>Welcome, <%= user.username %>!</h1>
     <a href="/game-ideas/new">Add Game Idea</a>
+    <h2>Current Game Ideas from the Team!</h2>
+
+    <ul>
+        <% gameDocs.forEach(idea => { %>
+         <li>
+            <a href="/game-ideas/<%= idea._id %>">
+                <%= idea.title %> - <%= idea.creator.username %>
+            </a>
+         </li>
+        <% }) %>
+    </ul>
 
 </body>
 </html>
