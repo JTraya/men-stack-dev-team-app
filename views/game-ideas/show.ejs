@@ -6,6 +6,8 @@
     <title>JTStudio: <%= gameDoc.title%></title>
 </head>
 <body>
+  <%- include('../partials/_navbar.ejs') %>
+
     <h1><%= gameDoc.title %></h1>
 
     <h2><%= gameDoc.tags %></h2>
@@ -16,6 +18,16 @@
      <p><%= gameDoc.details %></p>
      <% } else { %>
       <p>*No Extra Details Yet</p>
+    <% } %>
+
+    <% if (gameDoc.creator._id.equals(user._id)) { %>
+     
+      <a href="/game-ideas/<%= gameDoc._id %>/edit">Edit</a>
+
+      <form action="/game-ideas/<%= gameDoc._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+
     <% } %>
 
     <h2>Likes</h2>

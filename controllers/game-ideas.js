@@ -3,6 +3,64 @@ const router = express.Router();
 
 const GameIdea = require('../models/gameidea')
 
+router.put('/:gameIdeaId', async function(req, res){
+    try {
+        
+        const currentGameIdea = await GameIdea.findById(req.params.gameIdeaId);
+
+        if(currentGameIdea.creator.equals(req.session.user._id)) {
+            await currentGameIdea.updateOne(req.body);
+            res.redirect('/game-ideas')
+        } else {
+            res.send("You don't have permission to do that.")
+        }
+
+    } catch (error) {
+        console.log(error)
+        res.redirect('/')
+        
+    }
+})
+
+router.get('/:gameIdeaId/edit', async function(req, res) {
+
+    try {
+        
+        const currentGameIdea = await GameIdea.findById(req.params.gameIdeaId)
+
+        res.render('game-ideas/edit.ejs', {
+            gameIdea: currentGameIdea
+        })
+
+    } catch (error) {
+        console.log(error)
+        res.redirect('/')
+        
+    }
+
+})
+
+router.delete('/:gameIdeaId', async function(req, res) {
+    try {
+
+        const gameDoc = await GameIdea.findById(req.params.gameIdeaId)
+
+        if(gameDoc.creator.equals(req.session.user._id)){
+            await gameDoc.deleteOne();
+
+            res.redirect('/game-ideas')
+
+        } else {
+            res.send("You don't have permission to do that.")
+        }
+        
+    } catch (error) {
+        console.log(error)
+        res.redirect('/')
+        
+    }
+})
+
 router.post('/:gameIdeaId/liked-by', async function(req, res){
 
     try {
@@ -20,7 +78,7 @@ router.post('/:gameIdeaId/liked-by', async function(req, res){
 
 })
 
-
+// localhost:3000/game-ideas/
 router.get('/', async function(req, res){
 
     try {
@@ -58,6 +116,7 @@ router.get('/new', async function(req, res){
     res.render('game-ideas/new.ejs')
 })
 
+// localhost:3000/game-ideas/liked-by
 router.get('/:gameIdeaId', async function(req, res){
 
     try {

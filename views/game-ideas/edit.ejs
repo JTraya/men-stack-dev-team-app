@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTStudio: Edit</title>
+</head>
+<body>
+    <h1>Edit Game Idea</h1>
+
+
+    <form action="/game-ideas/<%= gameIdea._id %>?_method=PUT" method="POST">
+
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" value="<%= gameIdea.title %>"/>
+
+        <label for="tags">Tags:</label>
+        <input type="text" name="tags" id="tags" value="<%= gameIdea.tags %>"/>
+
+        <label for="description">Description:</label>
+        <textarea name="description" id="description"><%= gameIdea.description %></textarea>
+
+        <label for="details">Extra Details:</label>
+        <input type="text" name="details" id="details" value="<%= gameIdea.details %>">
+
+        <button type="submit">Edit Game Idea</button>
+        
+    </form>
+</body>
+</html>
