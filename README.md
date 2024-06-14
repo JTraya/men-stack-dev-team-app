@@ -1,6 +1,6 @@
 ![image](https://github.com/JTraya/men-stack-dev-team-app/assets/168610917/9f6e3bde-f31e-4983-9be8-f0ac0d351eba)
 
-# JTStudio!
+# JTStudio Game Development Team!
 
 ## The name and the story
 
