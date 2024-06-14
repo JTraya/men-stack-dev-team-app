@@ -16,7 +16,8 @@ Creating this app it felt like it would be a nice way for a team to collab on id
 
 ## Attributions
 
-***put attributions here if any***
+https://codepen.io/frytyler/pen/nJYVEO
+https://fonts.google.com/specimen/Exo+2?preview.layout=grid
 
 ## Technologies Used
 
