@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
   <title>Sign Up</title>
 </head>
 <body>
-  <h1>Create a new account!</h1>
+  <div class="login-type">
+  <h1>Create your account!</h1>
   <form action="/auth/sign-up" method="POST">
     <label for="username">Username:</label>
     <input type="text" name="username" id="username" required />
@@ -19,7 +21,8 @@
       id="confirmPassword"
       required 
     />
-    <button type="submit">Sign up</button>
+    <button class="btn btn-primary btn-block btn-large" type="submit">Sign up</button>
   </form>
+</div>
 </body>
 </html>

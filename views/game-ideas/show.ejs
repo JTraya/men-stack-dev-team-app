@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>JTStudio: <%= gameDoc.title%></title>
 </head>
 <body>
+
+  <div class="details">
   <%- include('../partials/_navbar.ejs') %>
 
     <h1><%= gameDoc.title %></h1>
@@ -19,17 +22,21 @@
      <% } else { %>
       <p>*No Extra Details Yet</p>
     <% } %>
+  </div>
 
     <% if (gameDoc.creator._id.equals(user._id)) { %>
-     
-      <a href="/game-ideas/<%= gameDoc._id %>/edit">Edit</a>
+
+     <div class="edit-delete">
+      <a class="link" href="/game-ideas/<%= gameDoc._id %>/edit">Edit</a>
 
       <form action="/game-ideas/<%= gameDoc._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete</button>
+        <button type="submit" class="delete-btn">Delete</button>
       </form>
+    </div>
 
     <% } %>
 
+    <div class="likes">
     <h2>Likes</h2>
     <p>Liked by <%= gameDoc.likesByUsers.length %> people.</p>
 
@@ -37,8 +44,9 @@
      <p>You liked this idea!</p>
      <% } else { %>
       <form action="/game-ideas/<%= gameDoc._id %>/liked-by" method="POST">
-        <button type="submit">Like it!</button>
+        <button type="submit" class="like-btn">Like it!</button>
       </form>
     <% } %>
+  </div>
 </body>
 </html>

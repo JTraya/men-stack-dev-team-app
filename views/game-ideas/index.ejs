@@ -4,19 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>JTStudio: <%= user.username %></title>
 </head>
 
-<body>
+<body class="index-body">
     <%- include('../partials/_navbar.ejs') %>
+
+    <div class="welcome-edit">
     <h1>Welcome, <%= user.username %>!</h1>
-    <a href="/game-ideas/new">Add Game Idea</a>
+    <a class="link" href="/game-ideas/new">Add Game Idea</a>
+    </div>
+
     <h2>Current Game Ideas from the Team!</h2>
 
     <ul>
         <% gameDocs.forEach(idea => { %>
          <li>
-            <a href="/game-ideas/<%= idea._id %>">
+            <a class="index-link" href="/game-ideas/<%= idea._id %>">
                 <%= idea.title %> - <%= idea.creator.username %>
             </a>
          </li>

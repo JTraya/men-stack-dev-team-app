@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>JTStudio: Edit</title>
 </head>
 <body>
+    <div class="login-type">
     <h1>Edit Game Idea</h1>
 
 
@@ -23,8 +25,9 @@
         <label for="details">Extra Details:</label>
         <input type="text" name="details" id="details" value="<%= gameIdea.details %>">
 
-        <button type="submit">Edit Game Idea</button>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Edit Game Idea</button>
         
     </form>
+    </div>
 </body>
 </html>
